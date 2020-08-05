@@ -1,4 +1,10 @@
 {%extends 'base.html' %}
+{% load static %}
+
+{% block style %}{% static 'css/history.css' %}{% endblock %}
+{% block title %}주문내역{% endblock %}
+{% block content %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,7 +14,7 @@
 </head>
 <body>
     <"nav class="navbar fixed-top">
-    <a href="home.html">
+    <a href="{%url 'home' %}" class="btn btn-outline-danger"></a>
     <div class="btn-group">
       <button class="btn bmd-btn-icon dropdown-toggle" type="button" id="ex3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         <i class="material-icons icon-set02">account_circle</i>
@@ -43,3 +49,4 @@
    </div>
 </body>
 </html>
+{% endblock %}
