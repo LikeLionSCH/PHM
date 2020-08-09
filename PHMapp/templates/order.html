@@ -22,19 +22,19 @@
     </div>
     <div class="col-md-8 order-md-1">
       <h4 class="mb-3">주문하기</h4>
-      <form class="needs-validation" action="#" method="POST" enctype="multipart/form-data" novalidate>
+      <form class="needs-validation" action="" method="POST" enctype="multipart/form-data" novalidate>
         {% csrf_token %}
 
         <!-- 주문하는 상품 -->
         <div class="mb-3">
             <label for="address">주문하는 상품</label>
-            <input type="text" class="form-control" id="name" name="name" placeholder="여따가 템플릿변수" required>
+            <input type="text" class="form-control" id="name" name="name" required>
         </div>
 
         <!-- 가격 -->
         <div class="mb-3">
             <label for="address">가격</label>
-            <input type="text" class="form-control" id="price" name="price" placeholder="여따가 템플릿변수" required>
+            <input type="text" class="form-control" id="price" name="price" required>
         </div>
 
         <!-- 이름 -->
