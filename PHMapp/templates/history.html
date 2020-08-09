@@ -21,15 +21,23 @@
   <div class="row">
     <div class="col text-center">
       <h3>고객님께서 주문하신 내용입니다</h3>
-      {% for item in orders %}
-      <p><strong>{{ item.food }}<strong></p>
-      <div class="basket-sum">
-        <p><strong>합계 : {{ item.price }}원</strong></p>
-      </div>
-      <aside width:100px;><strong>"망설임은 배송만 늦춥니다"</strong></aside>
-      <div class="pay-btn"><input type="submit" value="결제하기"><input type="submit" value="취소하기"></button></div>
-      {% endfor %}
     </div>
   </div>
+  {% for item in orders %}
+  <div class="row" style="margin-bottom: 50px">
+    <div class="col text-center">
+      <p><strong>{{ item.food }}<strong></p>
+      <p>주문자: {{ item.customer }}</p>
+      <p>가격: {{ item.price }}원</p>
+      <p>주소: {{ item.address }}</p>
+      <aside width:100px;><strong>요청사항: "{{ item.request }}"</strong></aside>
+      <div class="pay-btn">
+        <input type="submit" value="결제하기">
+        <input type="submit" value="취소하기">
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+</div>
 </div>
 {% endblock %}
