@@ -31,10 +31,10 @@ def edit(request, bamin_id):
 
 #주문하는 페이지
 def order(request):
-    # if request.method == 'POST':
-    #     if orders_imformation.is_vaid():
-    #         orders_imformation.save()
-    #         return redirect('home')
+    if request.method == 'POST':
+        if orders_imformation.is_vaid():
+            orders_imformation.save()
+            return redirect('edit')
 
     return render(request, 'order.html')
 
