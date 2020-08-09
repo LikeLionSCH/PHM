@@ -26,13 +26,27 @@ def edit(request, bamin_id):
         orders.time = request.POST['time']
 
         orders.save()
-        return redirect('history',orders.id)
+        return redirect('history')
     return render(request, 'edit.html',{'orders' : orders})
 
 #주문하는 페이지
 def order(request):
-    orders = Order.objects.all()
-    return render(request, 'order.html',{'orders': orders})
+    if request.method == 'POST':
+        order = Order()
+        #사진 파일 있는지 확인
+        if 'image' in request.FILES:
+            order.image = request.FILES['image']
+        order.price = request.POST['price']
+        order.customer = request.POST['customer']
+        order.address = request.POST['address']
+        order.request = request.POST['request']
+        order.food = request.POST['food']
+
+        order.save()
+        return redirect('history')
+    else:
+        orders = Order.objects.all()
+        return render(request, 'order.html', {'orders': orders})
 
 # 준비 중 페이지
 def ready(request):

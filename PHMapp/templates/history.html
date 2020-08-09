@@ -21,18 +21,14 @@
   <div class="row">
     <div class="col text-center">
       <h3>고객님께서 주문하신 내용입니다</h3>
-      <aside width:100px;><strong>"둘이 먹다 둘 다 죽어도 모를 맛"<br>"지금까지 이런 맛은 없었다!"</strong></aside>
-      <p><strong>매콤 양념치킨<strong></p>
-      <div class="btn-group item-count" role="group" aria-label="Basic example">
-        <button class="bt bt01 up">-</button>
-        <button class="bt bt-count">1</button>
-        <button class="bt bt02 down">+</button>
-      </div>
+      {% for item in orders %}
+      <p><strong>{{ item.food }}<strong></p>
       <div class="basket-sum">
-        <p><strong>합계 : 16,000원</strong></p>
+        <p><strong>합계 : {{ item.price }}원</strong></p>
       </div>
       <aside width:100px;><strong>"망설임은 배송만 늦춥니다"</strong></aside>
       <div class="pay-btn"><input type="submit" value="결제하기"><input type="submit" value="취소하기"></button></div>
+      {% endfor %}
     </div>
   </div>
 </div>

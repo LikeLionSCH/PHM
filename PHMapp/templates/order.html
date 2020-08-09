@@ -22,13 +22,15 @@
     </div>
     <div class="col-md-8 order-md-1">
       <h4 class="mb-3">주문하기</h4>
-      <form class="needs-validation" action="" method="POST" enctype="multipart/form-data" novalidate>
+      
+      <!-- 입력 폼 -->
+      <form class="needs-validation" action="{% url 'order' %}" method="POST" enctype="multipart/form-data" novalidate>
         {% csrf_token %}
 
         <!-- 주문하는 상품 -->
         <div class="mb-3">
             <label for="address">주문하는 상품</label>
-            <input type="text" class="form-control" id="name" name="name" required>
+            <input type="text" class="form-control" id="food" name="food" required>
         </div>
 
         <!-- 가격 -->
@@ -41,7 +43,7 @@
         <div class="row">
           <div class="col-md-6 mb-3">
             <label for="firstName">이름</label>
-            <input type="text" class="form-control" id="coustomer" name="coustomer" placeholder="" value="" required>
+            <input type="text" class="form-control" id="customer" name="customer" placeholder="" value="" required>
           </div>
         </div>
 
@@ -55,11 +57,13 @@
         <div class="mb-3">
             <label for="address">요청사항</label>
             <input type="text" class="form-control" id="request" name="request" placeholder="ex) 충남 신창면 순천향로22..." required>
-          </div>
+        </div>
 
         <!-- 버튼 -->
         <button class="btn btn-primary btn-lg btn-block" type="submit">입력 완료</button>
       </form>
+
+
     </div>
   </div>
 {% endblock %}
