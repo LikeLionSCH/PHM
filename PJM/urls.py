@@ -24,5 +24,5 @@ urlpatterns = [
     path('',home, name ="home"),
     path('edit/<int:bamin_id>',edit, name ="edit"),
     path('history/',history, name ="history"),
-    path('order/',order, name ="order"),
+    path('order/<int:bamin_id>',order, name ="order"),
 ] + static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)

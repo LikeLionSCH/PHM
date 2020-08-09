@@ -30,12 +30,9 @@ def edit(request, bamin_id):
     return render(request, 'edit.html',{'orders' : orders})
 
 #주문하는 페이지
-def order(request):
+def order(request, bamin_id):
     orders = get_object_or_404(Order)
-    if request.method == 'POST':
-        if orders.is_vaid():
-            orders.save()
-            return redirect('edit')
+ 
 
     return render(request, 'order.html',{'orders': orders})
 
