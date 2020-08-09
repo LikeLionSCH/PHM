@@ -24,4 +24,5 @@ urlpatterns = [
     path('',home, name ="home"),
     path('edit/',edit, name ="edit"),
     path('history',history, name ="history"),
+    path('order',history, name ="order"),
 ] + static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
