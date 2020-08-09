@@ -32,8 +32,12 @@
       <p>주소: {{ item.address }}</p>
       <aside width:100px;><strong>요청사항: "{{ item.request }}"</strong></aside>
       <div class="pay-btn">
-        <input type="submit" value="결제하기">
-        <input type="submit" value="취소하기">
+        <a href="{% url 'edit' item.id %}">
+          <input type="submit" value="수정하기">
+        </a>
+        <a href="{% url 'cancel' item.id %}">
+          <input type="submit" value="취소하기">
+        </a>
       </div>
     </div>
   </div>

@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from PHMapp.views import home, edit, history, order, ready
+from PHMapp.views import home, edit, history, order, ready, cancel
 from django.conf import settings
 from django.conf.urls.static import static
 
@@ -23,6 +23,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('',home, name ="home"),
     path('edit/<int:bamin_id>',edit, name ="edit"),
+    path('cancel/<int:bamin_id>', cancel, name="cancel"),
     path('history/',history, name ="history"),
     path('order/',order, name ="order"),
     path('ready/', ready, name='ready'),

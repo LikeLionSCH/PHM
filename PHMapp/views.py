@@ -13,21 +13,21 @@ def history(request):
 
 #주문내역 수정
 def edit(request, bamin_id):
-    orders = get_object_or_404(Order, pk = bamin_id)
+    order = get_object_or_404(Order, pk = bamin_id)
     
     if request.method=='POST':
         #사진 파일 있는지 확인
         if 'image' in request.FILES:
-            orders.image = request.FILES['image']
-        orders.name = request.POST['name']
-        orders.address = request.POST['address']
-        orders.request = request.POST['request']
-        orders.food = request.POST['food']
-        orders.time = request.POST['time']
+            order.image = request.FILES['image']
+        order.price = request.POST['price']
+        order.customer = request.POST['customer']
+        order.address = request.POST['address']
+        order.request = request.POST['request']
+        order.food = request.POST['food']
 
-        orders.save()
+        order.save()
         return redirect('history')
-    return render(request, 'edit.html',{'orders' : orders})
+    return render(request, 'edit.html',{'order' : order})
 
 #주문하는 페이지
 def order(request):
@@ -52,4 +52,8 @@ def order(request):
 def ready(request):
     return render(request, 'ready.html')
 
-
+# 주문 취소
+def cancel(request, bamin_id):
+    order = get_object_or_404(Order, pk=bamin_id)
+    order.delete()
+    return redirect('history')
