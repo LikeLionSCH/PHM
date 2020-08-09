@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from PHMapp.views import home,edit,history,order
+from PHMapp.views import home, edit, history, order, ready
 from django.conf import settings
 from django.conf.urls.static import static
 
@@ -25,4 +25,5 @@ urlpatterns = [
     path('edit/<int:bamin_id>',edit, name ="edit"),
     path('history/',history, name ="history"),
     path('order/',order, name ="order"),
+    path('ready/', ready, name='ready')
 ] + static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)

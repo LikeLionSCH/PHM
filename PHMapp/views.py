@@ -31,11 +31,11 @@ def edit(request, bamin_id):
 
 #주문하는 페이지
 def order(request):
-    # if request.method == 'POST':
-    #     if orders_imformation.is_vaid():
-    #         orders_imformation.save()
-    #         return redirect('home')
+    orders = Order.objects.all()
+    return render(request, 'order.html',{'orders': orders})
 
-    return render(request, 'order.html')
+# 준비 중 페이지
+def ready(request):
+    return render(request, 'ready.html')
 
 
