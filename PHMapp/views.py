@@ -30,10 +30,12 @@ def edit(request, bamin_id):
     return render(request, 'edit.html',{'orders' : orders})
 
 #주문하는 페이지
-def order(request, bamin_id):
-    orders = get_object_or_404(Order)
- 
-
+def order(request):
+    orders = Order.objects.all()
     return render(request, 'order.html',{'orders': orders})
+
+# 준비 중 페이지
+def ready(request):
+    return render(request, 'ready.html')
 
 
